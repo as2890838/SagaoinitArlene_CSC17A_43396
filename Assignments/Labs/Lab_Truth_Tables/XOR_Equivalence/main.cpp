@@ -13,6 +13,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 void table(bool, bool);
@@ -23,9 +24,11 @@ int main(int argc, char** argv)
     bool x, y;
     
     //Display heading
-    cout << "Prove that (X&&Y)||!(x||y) = !(x&&y)" << endl
-         << "also that (X||Y)&&!(X&&Y) =  X&&Y " << endl
-         << "X Y\tX&&Y X||Y !(X&&Y) !(X||Y) (X&&Y)||!(X||Y) (X||Y)&&!(X&&Y)" << endl;
+    cout << "Prove that (X^Y)||!(X||Y) = !(X^Y)" << endl
+         << "also that (X||Y)^!(X^Y) =  X^Y " << endl << endl;
+    
+    cout<<left<<setw(8)<<"X"<<setw(8)<<"Y"<<setw(8)<<"X^Y"<<setw(8)<<"!(X^Y)"<<setw(16)
+        <<"(X^Y)||!(X||Y)"<<"(X||Y)^!(X^Y)"<<endl;
     
     x=false;
     y=false;
@@ -35,13 +38,11 @@ int main(int argc, char** argv)
     return 0;
 }
 void table(bool x, bool y){
-    cout<<(x?'T':'F')<<" "
-        <<(y?'T':'F')<<"\t"
-        <<(x&&y?'T':'F')<<" "
-        <<(x||y?'T':'F')<<" "
-        <<(!(x&&y)?'T':'F')<<" "
-        <<(!(x||y)?'T':'F')<<" "
-        <<((x&&y)||!(x||y)?'T':'F')<<" "
-        <<((x||y)&&!(x&&y)?'T':'F')<<" "
-        <<endl;
+    cout<<left<<setw(8)
+        <<(x?'T':'F')<<setw(8)
+        <<(y?'T':'F')<<setw(8)
+        <<(x&&y?'T':'F')<<setw(8)
+        <<(!(x&&y)?'T':'F')<<setw(16)
+        <<((x&&y)||!(x||y)?'T':'F')
+        <<((x||y)&&!(x&&y)?'T':'F')<<endl;
 }

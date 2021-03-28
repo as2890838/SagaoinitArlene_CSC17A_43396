@@ -13,6 +13,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 void table(bool, bool);
@@ -22,7 +23,8 @@ int main(int argc, char** argv)
     bool x,y;
     
     cout<<"Prove that X&&(X||Y) = X||(X&&Y) = X"<<endl
-        <<"X Y\tX&&Y X||Y X&&(X||Y) X||(X&&Y) "<<endl;
+        <<left<<setw(5)<<"X"<<setw(5)<<"Y"
+        <<setw(10)<<"X&&(X||Y)"<<"X||(X&&Y)"<<endl;
     
     //First row
     x=true;
@@ -49,12 +51,10 @@ int main(int argc, char** argv)
 }
 
 void table(bool x, bool y){
-    cout<<(x?'T':'F')<<" "
-        <<(y?'T':'F')<<"\t"
-        <<(x&&y?'T':'F')<<" "
-        <<(x||y?'T':'F')<<" "
-        <<(x&&(x||y)?'T':'F')<<" "
-        <<(x||(x&&y)?'T':'F')<<" "
-        <<endl;
+    cout<<left<<setw(5)
+        <<(x?'T':'F')<<setw(5)
+        <<(y?'T':'F')<<setw(10)
+        <<(x&&(x||y)?'T':'F')
+        <<(x||(x&&y)?'T':'F')<<endl;
 }
 

@@ -13,6 +13,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 void table(bool, bool);
@@ -23,8 +24,10 @@ int main(int argc, char** argv)
     bool x,y;
     
     //Display heading
-    cout<<"X Y\t!X !Y X&&Y X||Y X^Y X^Y^X X^Y^Y !(X&&Y) !X||!Y "<<
-          " !(X||Y) !X&&!Y"<<endl;
+    cout<<left<<setw(9)<<"X"<<setw(9)<<"Y"<<setw(9)<<"!X"<<setw(9)<<"!Y"<<setw(9)
+        <<"X^Y"<<setw(9)<<"X||Y"<<setw(9)<<"X^Y"<<setw(9)<<"X^Y^X"<<setw(9)
+        <<"X^Y^Y"<<setw(9)<<"X^Y^X"<<setw(9)<<"!(X^Y)"<<setw(9)<<"!X||!Y"<<setw(9)
+        <<"!(X||Y)"<<setw(9)<<"!X^!Y"<<endl;
     
     // First row
     x=true;
@@ -57,20 +60,20 @@ int main(int argc, char** argv)
 }
 
 void table(bool x, bool y){
-    cout<<(x?'T':'F')<<" "
-        <<(y?'T':'F')<<"\t"
-        <<(!x?'T':'F')<<" "
-        <<(!y?'T':'F')<<" "
-        <<(x&&y?'T':'F')<<" "
-        <<(x||y?'T':'F')<<" "
-        <<(x&&y?'T':'F')<<" "
-        <<((x&&y)&&x?'T':'F')<<" "
-        <<((x&&y)&&y?'T':'F')<< " "
-        <<((x&&y)&&x?'T':'F')<< " "
-        <<(!(x&&y)?'T':'F')<<" "
-        <<(!x||!y?'T':'F')<<" "
-        <<(!(x||y)?'T':'F')<<" "
-        <<(!x&&!y?'T':'F')<<" "
-        <<endl;
+    cout<<left<<setw(9)
+        <<(x?'T':'F')<<setw(9)
+        <<(y?'T':'F')<<setw(9)
+        <<(!x?'T':'F')<<setw(9)
+        <<(!y?'T':'F')<<setw(9)
+        <<(x&&y?'T':'F')<<setw(9)
+        <<(x||y?'T':'F')<<setw(9)
+        <<(x&&y?'T':'F')<<setw(9)
+        <<((x&&y)&&x?'T':'F')<<setw(9)
+        <<((x&&y)&&y?'T':'F')<<setw(9)
+        <<((x&&y)&&x?'T':'F')<<setw(9)
+        <<(!(x&&y)?'T':'F')<<setw(9)
+        <<(!x||!y?'T':'F')<<setw(9)
+        <<(!(x||y)?'T':'F')<<setw(9)
+        <<(!x&&!y?'T':'F')<<endl;
 }
 
